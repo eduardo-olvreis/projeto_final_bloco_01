@@ -2,7 +2,7 @@
 
 O projeto consiste em uma aplicação como se fosse para um administrador da loja de jogos, podendo adicionar, remover, listar todos os jogos, atualizar e buscar jogo pelo ID <br>
 
-As principais funções são:
+As principais funções são: <br>
 1 - Cadastrar Jogo: Aqui é aonde o usuário vai adicionar o jogo no array, pedindo nome, preço, descrição, e o tipo do jogo (fisico ou digital) <br>
 2 - Listar todos: Ao selecionar a opção mostrará todos os jogos já cadastrados, caso não tenha nenhum, dará erro e voltará ao menu principal <br>
 3 - Buscar por ID: É uma pesquisa mais seleta dos jogos adicionados, ao digitar o ID do jogo aparecerá só ele no terminal <br>
