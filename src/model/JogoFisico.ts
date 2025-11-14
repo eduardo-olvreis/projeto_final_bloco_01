@@ -5,8 +5,8 @@ export class JogoFisico extends Jogo{
     private _plataforma: string
     private _estoque: number
 
-    constructor(id: number, nome: string, preco: number, descricao: string, plataforma: string, estoque: number){
-        super(id,nome,preco,descricao)
+    constructor(nome: string, preco: number, descricao: string, plataforma: string, estoque: number){
+        super(nome,preco,descricao)
         this._plataforma = plataforma
         this._estoque = estoque
     }

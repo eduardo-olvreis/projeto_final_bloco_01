@@ -1,12 +1,11 @@
 export abstract class Jogo {
     
-    private _id: number
+    private _id: number = 0
     private _nome: string
     private _preco: number
     private _descricao: string
 
-    constructor (id: number, nome: string, preco: number, descricao: string){
-        this._id = id
+    constructor (nome: string, preco: number, descricao: string){
         this._nome = nome
         this._preco = preco
         this._descricao = descricao

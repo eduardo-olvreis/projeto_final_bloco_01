@@ -4,8 +4,8 @@ export class JogoDigital extends Jogo{
 
     private _chaveAtivacao: number
 
-    constructor(id: number, nome: string, preco: number, descricao: string, chaveAtivacao: number){
-        super(id,nome,preco,descricao)
+    constructor(nome: string, preco: number, descricao: string, chaveAtivacao: number){
+        super(nome,preco,descricao)
         this._chaveAtivacao = chaveAtivacao
     }
 
