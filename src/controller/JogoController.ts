@@ -1,5 +1,6 @@
 import { Jogo } from "../model/Jogo";
 import { JogoRepository } from "../repository/JogoRepository";
+import { colors } from "../util/Color";
 
 export class JogoController implements JogoRepository {
     
@@ -10,7 +11,7 @@ export class JogoController implements JogoRepository {
         let novoID = this.gerarID()
         jogos.id = novoID
         this.listaJogos.push(jogos)
-        console.log(`\nO Jogo ${jogos.nome} (ID: ${novoID}) foi cadastrado com sucesso!`)
+        console.log(colors.fg.green, `\nO Jogo ${jogos.nome} (ID: ${novoID}) foi cadastrado com sucesso!`, colors.reset)
     }
     listarTodos(): void {
         if(this.listaJogos.length === 0){
@@ -37,7 +38,7 @@ export class JogoController implements JogoRepository {
             throw new Error(`\nO Jogo de ID ${jogo.id} não foi encontrado!`)
         } else{
             this.listaJogos[posicao] = jogo
-            console.log(`\nO Jogo ID ${jogo.id} foi atualizado com sucesso!`)
+            console.log(colors.fg.green, `\nO Jogo ID ${jogo.id} foi atualizado com sucesso!`, colors.reset)
         }
     }
     remover(id: number): void {
@@ -46,7 +47,7 @@ export class JogoController implements JogoRepository {
             throw new Error(`\nO Jogo ID ${id} não foi encontrado!`)
         } else {
             this.listaJogos.splice(posicao, 1)
-            console.log(`\nO Jogo ID ${id} foi removido com sucesso!`)
+            console.log(colors.fg.green,`\nO Jogo ID ${id} foi removido com sucesso!`,colors.reset)
         }
     }
 

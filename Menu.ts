@@ -1,4 +1,5 @@
 import readline = require("readline-sync")
+import { colors } from "./src/util/Color"
 import { Jogo } from "./src/model/Jogo"
 import { JogoDigital } from "./src/model/JogoDigital"
 import { JogoFisico } from "./src/model/JogoFisico"
@@ -29,13 +30,13 @@ export function main(){
         opcao = readline.questionInt("\nSelecione uma opcao: ")
 
         if(opcao === 0){
-            console.log("\nPrograma Encerrado!\n")
+            console.log(colors.fg.whitestrong,"\nPrograma Encerrado!\n", colors.reset)
             break
         }
 
         switch(opcao){
             case 1:
-                console.log("\nCadastrar Jogo\n")
+                console.log(colors.fg.whitestrong, "\nCadastrar Jogo\n", colors.reset)
 
                 console.log("Digite o nome do Jogo: ")
                 nome = readline.question("")
@@ -58,7 +59,7 @@ export function main(){
                                 console.log("\nChave de Ativacao adicionada com sucesso!")
                                 break
                             } else{
-                                console.log("\nChave de Ativacao invalida! Favor digitar uma chave com 5 caracteres numericos")
+                                console.log(colors.fg.red,"\nChave de Ativacao invalida! Favor digitar uma chave com 5 caracteres numericos", colors.reset)
                             }
                         }
                         jogos.cadastrar(new JogoDigital(nome, preco, descricao, chaveAtivacao))
@@ -74,7 +75,7 @@ export function main(){
                             if(estoque >= 0){
                                 break
                             } else{
-                                console.log("Favor inserir uma quantidade igual ou maior que 0!")
+                                console.log(colors.fg.red, "Quantidade de estoque inválida! Favor inserir uma quantidade igual ou maior que 0!",colors.reset)
                             }
                         }
                         jogos.cadastrar(new JogoFisico(nome, preco, descricao, plataforma, estoque))
@@ -84,18 +85,18 @@ export function main(){
                 keyPress()
                 break
             case 2:
-                console.log("\nListar todos os Jogos\n")
+                console.log(colors.fg.whitestrong,"\nListar todos os Jogos\n", colors.reset)
 
                 try{
                     jogos.listarTodos()
                 } catch (error: any){
-                    console.log(error.message)
+                    console.log(colors.fg.red, error.message, colors.reset)
                 }
 
                 keyPress()
                 break
             case 3:
-                console.log("Buscar Jogo por ID")
+                console.log(colors.fg.whitestrong,"\nBuscar Jogo por ID\n", colors.reset)
 
                 console.log("\nDigite o ID: ")
                 id = readline.questionInt("")
@@ -103,13 +104,13 @@ export function main(){
                 try{
                     jogos.buscarPorId(id)
                 } catch (error: any){
-                    console.log(error.message)
+                    console.log(colors.fg.red, error.message, colors.reset)
                 }
 
                 keyPress()
                 break
             case 4:
-                console.log("Atualizar dados do Jogo")
+                console.log(colors.fg.whitestrong,"\nAtualizar dados do Jogo\m", colors.reset)
 
                 console.log("Digite o ID do Jogo que você quer atualizar: ")
                 id = readline.questionInt("")
@@ -141,7 +142,7 @@ export function main(){
                                     console.log("\nChave de Ativacao adicionada com sucesso!")
                                     break
                                 } else{
-                                    console.log("\nChave de Ativacao invalida! Favor digitar uma chave com 5 caracteres numericos")
+                                    console.log(colors.fg.red,"\nChave de Ativacao invalida! Favor digitar uma chave com 5 caracteres numericos", colors.reset)
                                 }
                             }
                             let jogoAtualizadoDigital = new JogoDigital(nome, preco, descricao, chaveAtivacao)
@@ -162,13 +163,13 @@ export function main(){
                             break
                     }
                 } catch (error: any){
-                    console.log(error.message)
+                    console.log(colors.fg.red, error.message, colors.reset)
                 }
 
                 keyPress()
                 break
             case 5:
-                console.log("Remover Jogo do catálogo")
+                console.log(colors.fg.whitestrong,"\nRemover Jogo do catálogo\n", colors.reset)
 
                 console.log("\nDigite o ID do jogo: ")
                 id =readline.questionInt("")
@@ -176,13 +177,13 @@ export function main(){
                 try{
                     jogos.remover(id)
                 } catch (error: any){
-                    console.log(error.message)
+                    console.log(colors.fg.red, error.message, colors.reset)
                 }
 
                 keyPress()
                 break
             default:
-                console.log("Opcao inválida!")
+                console.log(colors.fg.red,"\nOpcao inválida!", colors.reset)
                 keyPress()
                 break
         }
